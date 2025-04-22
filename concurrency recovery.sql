@@ -26,7 +26,7 @@ ROLLBACK;
 START TRANSACTION;
 
 SELECT QuantityAvailable FROM Books
-WHERE BookID = 11 FOR UPDATE;
+WHERE BookID = 15 FOR UPDATE;
 
 -- Check QuantityAvailable, then issue...
 
