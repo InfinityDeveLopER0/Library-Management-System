@@ -127,4 +127,54 @@ INSERT INTO Fines (MemberID, BookID, FineAmount, PaymentStatus, PaymentMethod, F
 
 select * from Fines
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Normalization Datas
+
+INSERT INTO BooksN (ISBN, QuantityAvailable, ShelfLocation, LastIssuedDate) VALUES
+('9780743273565', 5, 'A1', '2025-03-15'),
+('9780061120084', 8, 'A2', '2025-04-10'),
+('9780451524935', 6, 'A3', '2025-02-20'),
+('9780316769488', 4, 'A4', '2025-03-05'),
+('9780199535569', 7, 'B1', '2025-03-28'),
+('9780547928227', 10, 'B2', '2025-04-12'),
+('9780439708180', 12, 'B3', '2025-03-18'),
+('9780385504201', 9, 'C1', '2025-04-02'),
+('9780062316097', 6, 'C2', '2025-02-25'),
+('9780399590504', 5, 'D1', '2025-03-30'),
+('9780307887894', 8, 'D2', '2025-02-14'),
+('9780735211292', 9, 'D3', '2025-03-22'),
+('9780857197689', 7, 'E1', '2025-02-28'),
+('9781455586691', 5, 'E2', '2025-04-05'),
+('9780374275631', 6, 'E3', '2025-03-12'),
+('9780553380163', 10, 'F1', '2025-04-01'),
+('9781590302255', 4, 'F2', '2025-03-09'),
+('9780812968255', 6, 'F3', '2025-02-18'),
+('9780062457714', 9, 'G1', '2025-03-25'),
+('9780812981605', 7, 'G2', '2025-04-07');
+
+
+INSERT INTO BookDetails (ISBN, Title, Author, Publisher, Category, Edition) VALUES
+('9780743273565', 'The Great Gatsby', 'F. Scott Fitzgerald', 'Scribner', 'Fiction', 'First'),
+('9780061120084', 'To Kill a Mockingbird', 'Harper Lee', 'J.B. Lippincott & Co.', 'Fiction', '50th Anniversary'),
+('9780451524935', '1984', 'George Orwell', 'Secker & Warburg', 'Dystopian', 'Revised'),
+('9780316769488', 'The Catcher in the Rye', 'J.D. Salinger', 'Little, Brown and Company', 'Fiction', 'First'),
+('9780199535569', 'Pride and Prejudice', 'Jane Austen', 'Thomas Egerton', 'Romance', 'Classic'),
+('9780547928227', 'The Hobbit', 'J.R.R. Tolkien', 'George Allen & Unwin', 'Fantasy', '75th Anniversary'),
+('9780439708180', 'Harry Potter and the Sorcerer’s Stone', 'J.K. Rowling', 'Bloomsbury', 'Fantasy', 'Illustrated'),
+('9780385504201', 'The Da Vinci Code', 'Dan Brown', 'Doubleday', 'Thriller', 'First'),
+('9780062316097', 'Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 'Harper', 'History', 'Updated'),
+('9780399590504', 'Educated', 'Tara Westover', 'Random House', 'Biography', 'First'),
+('9780307887894', 'The Lean Startup', 'Eric Ries', 'Crown Publishing', 'Business', 'Revised'),
+('9780735211292', 'Atomic Habits', 'James Clear', 'Avery', 'Self-Help', 'First'),
+('9780857197689', 'The Psychology of Money', 'Morgan Housel', 'Harriman House', 'Finance', 'First'),
+('9781455586691', 'Deep Work', 'Cal Newport', 'Grand Central Publishing', 'Productivity', 'Revised'),
+('9780374275631', 'Thinking, Fast and Slow', 'Daniel Kahneman', 'Farrar, Straus and Giroux', 'Psychology', 'Updated'),
+('9780553380163', 'A Brief History of Time', 'Stephen Hawking', 'Bantam', 'Science', 'Revised'),
+('9781590302255', 'The Art of War', 'Sun Tzu', 'Shambhala', 'Philosophy', 'Classic'),
+('9780812968255', 'Meditations', 'Marcus Aurelius', 'Modern Library', 'Philosophy', 'Updated'),
+('9780062457714', 'The Subtle Art of Not Giving a F*ck', 'Mark Manson', 'HarperOne', 'Self-Help', 'First'),
+('9780812981605', 'The Power of Habit', 'Charles Duhigg', 'Random House', 'Self-Help', 'Revised');
+
+
 
