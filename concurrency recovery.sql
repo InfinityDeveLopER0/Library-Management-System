@@ -35,3 +35,31 @@ COMMIT;
 
 --Recovery Mechanisms
 
+--Enable Binary Logging In MySQL
+[mysqld]
+log-bin=mysql-bin
+
+
+--Schedule Automatic Backups
+mysqldump -u root -p library_db > library_backup_$(date +%F).sql
+
+
+--Using Triggers For Recovery Support
+
+CREATE TABLE BookUpdateLogs (
+    LogID INT AUTO_INCREMENT PRIMARY KEY,
+    BookID INT,
+    OldQuantity INT,
+    NewQuantity INT,
+    UpdatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TRIGGER log_book_update
+AFTER UPDATE ON Books
+FOR EACH ROW
+BEGIN
+    INSERT INTO BookUpdateLogs (BookID, OldQuantity, NewQuantity)
+    VALUES (OLD.BookID, OLD.QuantityAvailable, NEW.QuantityAvailable);
+END;
+
