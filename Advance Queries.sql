@@ -103,7 +103,46 @@ WHERE BookID = 1 AND MemberID = 1 AND ReturnDate IS NULL;
 SELECT QuantityAvailable FROM Books WHERE BookID = 1;
 
 
-
 SHOW TRIGGERS;
+
+
+--Cursor
+
+DELIMITER //
+
+CREATE PROCEDURE CheckLowStockBooks()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+    DECLARE v_Title VARCHAR(255);
+    DECLARE v_Quantity INT;
+
+    -- Cursor for low-stock books
+    DECLARE cur CURSOR FOR
+        SELECT Title, QuantityAvailable
+        FROM Books
+        WHERE QuantityAvailable < 3;
+
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN cur;
+
+    read_loop: LOOP
+        FETCH cur INTO v_Title, v_Quantity;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        -- Instead of inserting, just display
+        SELECT CONCAT('Book "', v_Title, '" is low in stock: ', v_Quantity, ' left.') AS StockAlert;
+
+    END LOOP;
+
+    CLOSE cur;
+END;
+//
+
+DELIMITER ;
+
+CALL CheckLowStockBooks();
 
 

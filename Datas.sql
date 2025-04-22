@@ -20,6 +20,11 @@ INSERT INTO Books (Title, Author, Publisher, ISBN, Category, QuantityAvailable, 
 ('The Subtle Art of Not Giving a F*ck', 'Mark Manson', 'HarperOne', '9780062457714', 'Self-Help', 9, 'G1', 'First', '2025-03-25'),
 ('The Power of Habit', 'Charles Duhigg', 'Random House', '9780812981605', 'Self-Help', 7, 'G2', 'Revised', '2025-04-07');
 
+UPDATE Books SET QuantityAvailable = 1 WHERE BookID = 1;
+UPDATE Books SET QuantityAvailable = 1 WHERE BookID = 2;
+UPDATE Books SET QuantityAvailable = 1 WHERE BookID = 20;
+UPDATE Books SET QuantityAvailable = 1 WHERE BookID = 12;
+
 
 select * from Books;
 
