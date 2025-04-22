@@ -65,6 +65,15 @@ END;
 
 DELIMITER ;
 
+--working of triggerL
+
+--Check Initial Book Quantity
+SELECT BookID, Title, QuantityAvailable FROM Books WHERE BookID = 1;
+--Insert a Transaction (Simulate issuing a book)
+INSERT INTO Transactions (BookID, MemberID, IssueDate, DueDate, IssuedByStaffID)
+VALUES (1, 1, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 7 DAY), 1);
+--Now check if the quantity decreased:
+
 
 
 --Trigger 2: Book is returned – increase available quantity
@@ -85,6 +94,14 @@ END;
 //
 
 DELIMITER ;
+
+ --Update Return Date
+UPDATE Transactions
+SET ReturnDate = CURDATE()
+WHERE BookID = 1 AND MemberID = 1 AND ReturnDate IS NULL;
+--Now check
+SELECT QuantityAvailable FROM Books WHERE BookID = 1;
+
 
 
 SHOW TRIGGERS;
