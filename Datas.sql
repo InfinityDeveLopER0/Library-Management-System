@@ -121,3 +121,5 @@ INSERT INTO Fines (MemberID, BookID, FineAmount, PaymentStatus, PaymentMethod, F
 
 
 select * from Fines
+
+
